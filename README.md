@@ -42,9 +42,19 @@ To start/stop the timer you must interact with the browser source you created fo
 
 When the page loads the clock will be set to the configured duration (by default 3 minutes).
 
+**Start Timer**
+
+![start_timer](img/start_timer.png)
+
 To start the countdown click on the green button.
+
+**Stop Timer**
+
+![stop_timer](img/stop_timer.png)
 
 To stop the timer click on the red button.
 
-When the timer reaches zero it will play the the configured audio file (by default "alarm.mp3").
+**Alarm**
+
+When the timer reaches zero it will play the configured audio file (by default "alarm.mp3").
 
