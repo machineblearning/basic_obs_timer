@@ -1,0 +1,33 @@
+p {
+  color: white;
+  font-size: 48px;
+  font-family: Helvetica;
+  margin: 0;
+  display: inline-block;
+}
+
+body {
+  background-color: black;
+  margin: 0px auto;
+  overflow: hidden;
+}
+
+button {
+  border: none;
+  border-radius: 50%;
+  color: white;
+  background-color: green;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 48px;
+  margin: 5px;
+  cursor: pointer;
+  vertical-align: top;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: none;
+}
