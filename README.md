@@ -20,17 +20,28 @@ Setting the Width to 180 and Height to 60 should work in most cases but you can 
 
 #### Timer Settings
 
-The duration of the timer and the audio file that plays can be configured. These settings are in the file called "config.js".  The default settings are:
+The duration of the timer and the audio file that plays can be configured. You can also set the volume level (0-10; 0 for muted, 10 for max volume). Optional configuration options are described below. These settings are in the file called "config.js".  The default settings are:
 
 ```
 conf = {
     "audio_filename": "alarm.mp3",
     "minutes": 3,
-    "seconds": 0
+    "seconds": 0,
+    "volume": 10,
 }
 ```
 
 Use any text editor to open "config.js" and modify the settings as needed.
+
+__Configuration Option Descriptions__
+
+|Option Name|Description|Datatype|
+--|--|--
+|audio_filename|File path to the audio file to be played|string|
+|minutes|The number of minutes the timer should run.|integer|
+|seconds|The additonal number of seconds the timer should run (added to the minutes). |integer|
+|volume|Control output volume with a number from 0 to 10. 10 is max volume, 0 is muted.|integer|
+|hideLight|(optional) If true, hides the light/button during the countdown.|boolean|
 
 ## Usage
 
@@ -48,11 +59,11 @@ When the page loads the clock will be set to the configured duration (by default
 
 To start the countdown click on the green button.
 
-**Stop Timer**
+**Reset Timer**
 
 ![stop_timer](img/stop_timer.png)
 
-To stop the timer click on the red button.
+To reset the timer click on the red button.
 
 **Alarm**
 

@@ -1,11 +1,16 @@
 // Default config options
 var START_TIME = 60*3 // default 3 minutes
 var AUDIO_FILE = "alarm.mp3" // default sound
+var VOLUME_LVL = 10 // default volume level
+var HIDE_LIGHT = false;
 
 // Overwrite config options if config.js file is present
 if (typeof(conf) !== "undefined") {
     START_TIME = conf.minutes*60 + conf.seconds;
     AUDIO_FILE = conf.audio_filename;
+    VOLUME_LVL = conf.volume;
+    // optional fields
+    if (conf.hideLight !== "undefined"){ HIDE_LIGHT = conf.hideLight; }
 }
 
 // Get html element references
@@ -16,6 +21,7 @@ var button = document.getElementById("button");
 var time = START_TIME;
 var running = false;
 var audio = new Audio(AUDIO_FILE);
+audio.volume = VOLUME_LVL/10;
 var task_id = null;
 
 // Define time formatting functions
@@ -40,12 +46,14 @@ function start_timer() {
     task_id = setInterval(() => {
         time -= 1;
         clock.innerHTML = format_time(time);
-        if (time == 0) {
+        if (time == 0) { // if timer is complete
             audio.play();
             clearInterval(task_id);
+            if(HIDE_LIGHT){ button.style.opacity = 1; }
         }
     }, 1000);
     running = true;
+    if(HIDE_LIGHT){ button.style.opacity = 0; }
 }
 
 function reset_timer() {
@@ -54,6 +62,7 @@ function reset_timer() {
     time = START_TIME;
     clock.innerHTML = format_time(START_TIME);
     button.style.background='green';
+    if(HIDE_LIGHT){ button.style.opacity = 1; }
 }
 
 function toggle() {
