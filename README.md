@@ -4,7 +4,7 @@ Countdown timer with alarm sound. Designed to be used in OBS scenes as a browser
 
 ## Install
 
-Download the [latest release](https://github.com/machineblearning/basic_obs_timer/releases) and extract the .zip file in your preferred location. Keep note of the directory you extract the files to so you can find them during configuration.
+Download the [latest release](https://github.com/machineblearning/basic_obs_timer/releases/latest) and extract the .zip file in your preferred location. Keep note of the directory you extract the files to so you can find them during configuration.
 
 ## Configuration
 
