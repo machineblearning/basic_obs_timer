@@ -20,6 +20,7 @@ var button = document.getElementById("button");
 // Set state variables
 var time = START_TIME;
 var running = false;
+var paused = false;
 var audio = new Audio(AUDIO_FILE);
 audio.volume = VOLUME_LVL/10;
 var task_id = null;
@@ -44,13 +45,16 @@ function start_timer() {
     button.style.background='red';
     time = START_TIME;
     task_id = setInterval(() => {
-        time -= 1;
-        clock.innerHTML = format_time(time);
-        if (time == 0) { // if timer is complete
-            audio.play();
-            clearInterval(task_id);
-            if(HIDE_LIGHT){ button.style.opacity = 1; }
+        if (!paused){
+            time -= 1;
+            clock.innerHTML = format_time(time);
+            if (time == 0) { // if timer is complete
+                audio.play();
+                clearInterval(task_id);
+                if(HIDE_LIGHT){ button.style.opacity = 1; }
+            }
         }
+
     }, 1000);
     running = true;
     if(HIDE_LIGHT){ button.style.opacity = 0; }
@@ -65,10 +69,20 @@ function reset_timer() {
     if(HIDE_LIGHT){ button.style.opacity = 1; }
 }
 
-function toggle() {
+function start_restart_toggle() {
     if (running) {
         reset_timer();
     } else {
         start_timer();
+    }
+}
+
+function pause_resume_toggle(){
+    paused = !paused;
+    
+    if (paused){ // grey out timer text
+        clock.style.color = "grey";
+    } else { // undo greying out of text
+        clock.style.color = "white";
     }
 }

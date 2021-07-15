@@ -65,6 +65,10 @@ To start the countdown click on the green button.
 
 To reset the timer click on the red button.
 
+**Pause/Resume Timer**
+
+You can click on the clockface to pause the timer. To resume, click the clockface again. While paused the time text will be grey.
+
 **Alarm**
 
 When the timer reaches zero it will play the configured audio file (by default "alarm.mp3").
